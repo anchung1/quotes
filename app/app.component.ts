@@ -1,7 +1,12 @@
 import {Component} from 'angular2/core';
+import {MytempComponent} from './mytemp.component'
+import {DataService} from './data.service'
+
 
 @Component({
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1>'
+    template: '<my-template></my-template>',
+    directives: [MytempComponent],
+    providers: [DataService]
 })
 export class AppComponent { }
