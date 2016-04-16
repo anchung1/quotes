@@ -8,12 +8,25 @@ import {Quote} from './mock-data'
         <div>My Template</div>
         <ul>
             <li *ngFor="#quote of quotes">
-                <span>{{quote.symbol}}</span>
-                <span>{{quote.value}}</span>
-                <span>{{quote.deltaPercent}}</span>
+                <div><span>{{quote.symbol}}</span></div>
+                <div><span>{{quote.value}}</span></div>
+                <div [class.negative]="quote.deltaPercent < 0"
+                    [class.positive]="quote.deltaPercent >= 0">
+                    <span>{{quote.deltaPercent}}%</span>
+                </div>
             </li>
         </ul>
-    `
+    `,
+    styles:[`
+        ul {list-style: none;}
+        li {/*background: #00AA00*/; color: black; display: flex}
+        li div {margin-right: 10px; flex-basis: 60px; display: flex; justify-content: flex-end}
+        li div:nth-child(1) {color: blue}
+        .negative {color: red}
+        .positive {color: green}
+        
+                
+    `]
     
 })
 export class MytempComponent implements OnInit{
