@@ -1,6 +1,6 @@
 export var HelloMessage = 'Service Hello'
 
-class Quote {
+export class Quote {
     symbol: string;
     value: number;
     deltaPercent: number;
